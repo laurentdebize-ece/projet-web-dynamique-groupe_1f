@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNES MySkills</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+<html>
+<body>
+
+<svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"
+      style="stop-color:rgb(69, 144, 163);stop-opacity:1" />
+      <stop offset="100%"
+      style="stop-color:rgb(69, 144, 163);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="250" cy="70" rx="250" ry="60" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="45" font-family="Verdana"
+  x="65" y="86">OMNES my skills</text>
+
+</svg>
+
+</body>
+</html>
+      
+    <h5>OMNES myskills</h5>
+  
+   
+<div id="nav"> 
+ <a href="index.html">Home</a> 
+ <a href="annonces.html">Test</a> 
+ <a href="financing.html"></a> 
+ <a href="contact.html">Contact</a> 
+</div> 
+<h2> connectez vous</h2>
+
+
+<p class="contact"> 
+</p> 
+
+</div>
+    <form action="" method="post">
+        <label for="id">Identifiant</label>
+        <input type="text" name="login" id="login"> <br> <br>
+        <label for="id">Mot de passe</label>
+        <input type="password" name="password" id="password">
+        
+        
+        <table>
+            <p>&#128512;</p>
+       
+        <tr>
+        
+        <td>
+        <input type="checkbox" name="creditCard" value="MasterCard">abilite de codee <br>
+        <input type="checkbox" name="creditCard" value="Visa">raisonnement des algorithmes<br>
+        <input type="checkbox" name="creditCard" value="AmericanExpress">creativite
+         <br><br>
+        </td>
+        </tr>
+</body>
+<div id="footer">Copyright &copy; 2022 Prime Properties<br> 
+    <a href="mailto:prime.properties@gmail.com">prime.properties@gmail.com>
+</html>
