@@ -11,7 +11,7 @@ CREATE TABLE Administrateur(
     Email VARCHAR(100) NOT NULL UNIQUE,
     MotDePasse VARCHAR(100) NOT NULL,
     Poste VARCHAR(100) NOT NULL,
-);
+)
 
 CREATE TABLE Professeur(
     Nom VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE Professeur(
     Email VARCHAR(100) NOT NULL UNIQUE,
     MotDePasse VARCHAR(100) NOT NULL,
     Classes VARCHAR(200) NOT NULL,
-);
+)
 
 CREATE TABLE Etudiant(
     Nom VARCHAR(100) NOT NULL,
@@ -28,4 +28,4 @@ CREATE TABLE Etudiant(
     MotDePasse VARCHAR(100) NOT NULL,
     Groupe int(10) NOT NULL,
     Promo VARCHAR (10) NOT NULL,
-);
+)
