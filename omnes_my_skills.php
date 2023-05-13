@@ -21,17 +21,18 @@
     session_start();
 
     if (isset($_POST['login']) && isset($_POST['password'])) {
-        $database = "BDMYSKILLS";
+        $database = "omnesmyskills";
         $db_handle = mysqli_connect('localhost','root','Ficelle2003!'); 
         $db_found = mysqli_select_db($db_handle, $database);
 
         $username = mysqli_real_escape_string($db_handle, $_POST['login']);
         $password = mysqli_real_escape_string($db_handle, $_POST['password']);
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM connexion WHERE Identifiant = '$username' AND Motdepasse = '$password'";
         $result = mysqli_query($db_handle, $sql);
 
         if ($result) {
-            $_SESSION['username'] = $username;
+            $_SESSION['Identifiant'] = $username;
+            echo "Bienvenue".$username;
             header("Location: menu.php");
             exit();
         } else {
