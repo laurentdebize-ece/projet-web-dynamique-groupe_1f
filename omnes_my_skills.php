@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php include "premiere_connexion.php"?>
 </head>
 <body>
 
@@ -32,7 +33,7 @@
             <input type="submit" value="Connexion">
         </form>
 
-        <form id="Register" class="tabcontent" style="display:none" action="register.html" method="post">
+        <form id="Register" class="tabcontent" style="display:none" action="accueil.html" method="post">
             <label for="firstname">Prénom</label>
             <input type="text" name="firstname" id="firstname"> <br> <br>
             <label for="lastname">Nom</label>
