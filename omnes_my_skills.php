@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,60 +9,39 @@
 <body>
     <h1>OMNES MySkills</h1>
     <form action="" method="post">
-        <label for="id">Identifiant</label>
+        <label for="login">Identifiant</label>
         <input type="text" name="login" id="login"> <br> <br>
-        <label for="id">Mot de passe</label>
+        <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password">
+        <br><br>
+        <input type="submit" value="Se connecter">
     </form>
+
+    <?php 
+    session_start();
+
+    if (isset($_POST['login']) && isset($_POST['password'])) {
+        $database = "BDMYSKILLS";
+        $db_handle = mysqli_connect('localhost','root','Ficelle2003!'); 
+        $db_found = mysqli_select_db($db_handle, $database);
+
+        $username = mysqli_real_escape_string($db_handle, $_POST['login']);
+        $password = mysqli_real_escape_string($db_handle, $_POST['password']);
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $result = mysqli_query($db_handle, $sql);
+
+        if ($result) {
+            $_SESSION['username'] = $username;
+            header("Location: menu.php");
+            exit();
+        } else {
+            echo "Nom d'utilisateur ou mot de passe incorrect.";
+        }
+
+        mysqli_close($db_handle);
+    }
+
+    ?>
+
 </body>
 </html>
-
--->
-
-<?php 
-
-$database = "Connexion";
-$db_handle = mysqli_connect('localhost','root',''); 
-$db_found = mysqli_select_db($db_handle, $database);
-
-$username = mysqli_real_escape_string($conn, $_POST['username']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-$result = mysqli_query($conn, $sql);
-
-
-if (mysqli_num_rows($result) == 1) {
-  session_start();
-  $_SESSION['username'] = $username;
-  header("Location: index.php");
-} else {
-  echo "Nom d'utilisateur ou mot de passe incorrect.";
-}
-
-mysqli_close($conn);
-?>
-
-<?php
-// Démarrer la session
-session_start();
-
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-}
-
-// Afficher le nom d'utilisateur de l'utilisateur connecté
-echo "Bonjour, " . $_SESSION['username'] . "!";
-
-?>
-
-
-
-
-
-
-
-
-
-
-?>
