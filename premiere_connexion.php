@@ -13,7 +13,7 @@ if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["emai
     $serveur = "localhost";
     $utilisateur = "root";
     $mdp_bdd = "Ficelle2003!";
-    $bdd = "bdd_projet.sql";
+    $bdd = "omnesmyskills.sql";
 
     $connexion = mysqli_connect($serveur, $utilisateur, $mdp_bdd, $bdd);
 
