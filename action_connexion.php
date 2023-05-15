@@ -28,6 +28,5 @@ if(isset($_POST["login"],$_POST["password"]) && !empty($_POST["login"] && !empty
             echo '<br>';
         }
     }
-
 }
 ?>
