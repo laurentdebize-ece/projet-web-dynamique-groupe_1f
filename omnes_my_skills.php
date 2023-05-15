@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php include "premiere_connexion.php"?>
 </head>
 
 <body>
@@ -59,6 +60,37 @@
             <br><br>
             <input type="submit" value="Connexion">
         </form>
+<<<<<<< HEAD
+=======
+
+        <form id="Register" class="tabcontent" style="display:none" action="accueil.html" method="post">
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname" id="firstname"> <br> <br>
+            <label for="lastname">Nom</label>
+            <input type="text" name="lastname" id="lastname"> <br> <br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email"> <br> <br>
+            <label for="class">Classe</label>
+            <select name="class" id="class">
+                <option value="etudiant">Etudiant</option>
+                <option value="scolarite">Scolarité</option>
+                <option value="administrateur">Administrateur</option>
+            </select> <br> <br>
+            <label for="code">Code de vérification</label>
+            <input type="text" name="code" id="code"> <br> <br>
+            <label for="passwordReg">Mot de passe</label>
+            <div class="password-container">
+                <input type="password" name="passwordReg" id="passwordReg">
+                <span toggle="#passwordReg" class="toggle-password">👁️</span>
+            </div> <br>
+            <label for="passwordConfirm">Confirmer le mot de passe</label>
+            <div class="password-container">
+                <input type="password" name="passwordConfirm" id="passwordConfirm">
+                <span toggle="#passwordConfirm" class="toggle-password">👁️</span>
+            </div> <br>
+            <input type="submit" value="S'inscrire">
+        </form>
+>>>>>>> a1179a9cdfe2f90b5158fdec69a4115d37266c42
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
     <script src="menu.js"></script>
