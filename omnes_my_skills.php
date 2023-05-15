@@ -8,11 +8,12 @@
 </head>
 <body>
     <h1>OMNES MySkills</h1>
-    <form action="" method="post">
+    <form action="action_connexion.php" method="post">
         <label for="id">Identifiant</label>
         <input type="text" name="login" id="login"> <br> <br>
         <label for="id">Mot de passe</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password"> <br> <br>
+        <input type="submit" name="submit" value="Connexion">
     </form>
 </body>
 </html>
