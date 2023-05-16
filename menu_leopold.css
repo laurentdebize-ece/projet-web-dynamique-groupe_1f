@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    flex-direction: column; /* nouvelle propriété */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #b0e0e6; /*couleur bleu clair*/
+    color: #fff;
+    margin: 0;
+    background-image: url('ece1.png'); /* remplacez "nom_de_votre_image.jpg" par le nom de votre image */
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 291px 96px;
+  }
+  
+  h1 {
+    font-size: 48px; /*taille de la police pour le titre*/
+    color: #0d090b; /*couleur rose*/
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(150, 29, 100, 0.8); /*fond blanc avec une transparence*/
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px; /*ajout d'une marge pour séparer le titre des identifiants*/
+  }
+  
+  label {
+    font-size: 24px; /*taille de la police pour les labels*/
+    margin-bottom: 10px;
+  }
+  
+  input {
+    font-size: 24px; /*taille de la police pour les inputs*/
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
