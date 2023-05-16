@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMNES MySkills</title>
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
     <h1>OMNES MySkills</h1>
-    <form action="action_connexion.php" method="post">
+    <form action="" method="post">
         <label for="id">Identifiant</label>
         <input type="text" name="login" id="login"> <br> <br>
         <label for="id">Mot de passe</label>
         <input type="password" name="password" id="password"> <br> <br>
-        <input type="submit" name="submit" value="Connexion">
+        <input type="submit" value="Connexion">
     </form>
 </body>
 </html>
