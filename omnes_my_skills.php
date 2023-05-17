@@ -10,7 +10,7 @@
     <h1>OMNES MySkills</h1>
     <form action="" method="post">
         <label for="login">Identifiant</label>
-        <input type="text" name="Identifiant" id="login"> <br> <br>
+        <input type="text" name="Email" id="login"> <br> <br>
         <label for="password">Mot de passe</label>
         <input type="password" name="Motdepasse" id="password">
         <br><br>
@@ -20,22 +20,22 @@
     <?php 
     session_start();
 
-    if (isset($_POST['Identifiant']) && isset($_POST['Motdepasse'])) {
+    if (isset($_POST['Email']) && isset($_POST['Motdepasse'])) {
         $database = "omnesmyskills.sql";
-        $db_handle = mysqli_connect('localhost','root','Ficelle2003!'); 
+        $db_handle = mysqli_connect('localhost:3306','root','root'); 
         $db_found = mysqli_select_db($db_handle, $database);
         
         if (!$db_found) {
           die("Database not found.");
       }
 
-        $username = mysqli_real_escape_string($db_handle, $_POST['Identifiant']);
+        $username = mysqli_real_escape_string($db_handle, $_POST['Email']);
         $password = mysqli_real_escape_string($db_handle, $_POST['Motdepasse']);
-        $sql = "SELECT * FROM connexion WHERE Identifiant = '".$username."' AND Motdepasse = '".$password."'";
+        $sql = "SELECT * FROM connexion WHERE Email = '".$username."' AND Motdepasse = '".$password."'";
         $result = mysqli_query($db_handle, $sql);
 
         if ($result) {
-            $_SESSION['Identifiant'] = $username;
+            $_SESSION['Email'] = $username;
             echo "Bienvenue ".$username;
             header("Location: menu.php");
             exit();
