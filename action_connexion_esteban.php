@@ -21,11 +21,10 @@ if(isset($_POST["login"],$_POST["password"]) && !empty($_POST["login"] && !empty
         echo "<tr><td>" . $row['Email'] . "</td>    <td>" . $row['MotDePasse'] . "</td></tr> <br>";
         if(htmlspecialchars($_POST["login"]) == $row['Email'] 
         && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
-            echo 'successed';
+            echo 'successed <br>';
         }
         else {
-            echo 'failed';
-            echo '<br>';
+            echo 'failed <br>';
         }
     }
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>OMNES MySkills</h1>
-    <form action="action_connexion_2.php" method="post">
+    <form action="action_connexion_esteban.php" method="post">
         <label for="id">Identifiant</label>
         <input type="text" name="login" id="login"> <br> <br>
         <label for="id">Mot de passe</label>
