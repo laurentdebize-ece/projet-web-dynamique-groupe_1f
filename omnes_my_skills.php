@@ -22,7 +22,6 @@ if (isset($_POST['Email']) && isset($_POST['Motdepasse'])) {
         if ($result) {
             $_SESSION['Email'] = $username;
             echo "Bienvenue " . $username;
-            header("Location: menu.php");
             exit();
         } else {
             echo "Nom d'utilisateur ou mot de passe incorrect.";

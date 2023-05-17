@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $skill = htmlspecialchars($skill);
 
     // Requête d'insertion dans la base de données
-    $sql = "INSERT INTO skills (skill_name) VALUES (?)";
+    $sql = "INSERT INTO mathematiques (skill_name) VALUES (?)";
 
     // Préparation de la requête
     $stmt = $bdd->prepare($sql);
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Redirection vers une page de confirmation ou autre
-  header('Location: confirmation.php');
+  echo "Ajoutée !";
   exit();
 }
 
