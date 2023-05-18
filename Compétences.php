@@ -10,50 +10,54 @@ try {
 
 // Suppression d'une compétence
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_skill'])) {
-  $skillId = $_POST['delete_skill'];
+    $skillId = $_POST['delete_skill'];
 
-  // Requête de suppression
-  $sql = "DELETE FROM mathematiques WHERE id = ?";
+    // Requête de suppression
+    $sql = "DELETE FROM " . $_POST['subject'] . " WHERE id = ?";
 
-  // Préparation de la requête
-  $stmt = $bdd->prepare($sql);
+    // Préparation de la requête
+    $stmt = $bdd->prepare($sql);
 
-  // Exécution de la requête avec les valeurs des paramètres
-  if ($stmt->execute([$skillId])) {
+    // Exécution de la requête avec les valeurs des paramètres
+    if ($stmt->execute([$skillId])) {
 
-  } else {
-    echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo();
-  }
-
-  // Redirection vers une page de confirmation ou autre
+    } else {
+        echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo();
+    }
 }
 
 // Ajout d'une compétence
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_skill'])) {
-  // Récupérer la matière sélectionnée et la nouvelle compétence
-  $subject = $_POST['subject'];
-  $newSkill = htmlspecialchars($_POST['new_skill']);
+    // Récupérer la matière sélectionnée et la nouvelle compétence
+    $subject = $_POST['subject'];
+    $newSkill = htmlspecialchars($_POST['new_skill']);
 
-  // Requête d'insertion dans la base de données
-  $sql = "INSERT INTO mathematiques (Competences) VALUES (?)";
+    // Requête d'insertion dans la base de données
+    $sql = "INSERT INTO " . $subject . " (Competences) VALUES (?)";
 
-  // Préparation de la requête
-  $stmt = $bdd->prepare($sql);
+    // Préparation de la requête
+    $stmt = $bdd->prepare($sql);
 
-  // Exécution de la requête avec les valeurs des paramètres
-  if ($stmt->execute([$newSkill])) {
-  
-  } else {
-    echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo();
-  }
+    // Exécution de la requête avec les valeurs des paramètres
+    if ($stmt->execute([$newSkill])) {
 
-  // Redirection vers une page de confirmation ou autre
+    } else {
+        echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo();
+    }
+
 }
 
-// Récupération des compétences existantes
-$sql = "SELECT * FROM mathematiques";
-$stmt = $bdd->query($sql);
-$skills = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Récupération de la matière sélectionnée
+$selectedSubject = isset($_POST['subject']) ? $_POST['subject'] : ($selectedSubject ?? null);
+
+// Récupération des compétences de la matière sélectionnée
+if ($selectedSubject) {
+    $sql = "SELECT * FROM " . $selectedSubject;
+    $stmt = $bdd->query($sql);
+    $subjectSkills = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $subjectSkills = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +72,7 @@ $skills = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div>
       <label for="subject">Matière :</label>
       <select name="subject" id="subject">
-        <option value="maths">Mathématiques</option>
+        <option value="mathematiques">Mathématiques</option>
         <option value="physique">Physique</option>
         <!-- Ajouter les autres matières ici -->
       </select>
@@ -84,16 +88,16 @@ $skills = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <h2>Liste des compétences :</h2>
   <ul>
-    <?php foreach ($skills as $skill) { ?>
-  <li>
-  <?php echo $skill['Competences']; ?>
-  <form method="POST" action="">
-  <input type="hidden" name="delete_skill" value="<?php echo $skill['id']; ?>">
-  <button type="submit">Supprimer</button>
-  </form>
-  </li>
-  <?php } ?>
-  
-    </ul>
-  </body>
-  </html>
+    <?php foreach ($subjectSkills as $skill) { ?>
+      <li>
+        <?php echo $skill['Competences']; ?>
+        <form method="POST" action="">
+          <input type="hidden" name="subject" value="<?php echo $selectedSubject; ?>">
+          <input type="hidden" name="delete_skill" value="<?php echo $skill['id']; ?>">
+          <button type="submit">Supprimer</button>
+        </form>
+      </li>
+    <?php } ?>
+  </ul>
+</body>
+</html>
