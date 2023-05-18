@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,9 @@
     <title>OMNES MySkills - Compétences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="competences.css">
 </head>
+
 <body>
     <button class="menu-btn">☰
         <span class="text">Menu</span>
@@ -19,7 +22,7 @@
         <a href="competences_transverses.html">Compétences transverses</a>
         <a href="toutes_compétences.html">Toutes les compétences</a>
         <a href="profil.html">Profil</a>
-    </nav>  
+    </nav>
 
     <div class="main">
         <h1>Compétences</h1>
@@ -27,8 +30,69 @@
             <span>Bonjour, [Nom d'utilisateur]</span>
             <a href="omnes_my_skills.php">Déconnexion</a>
         </div>
-        <!-- Contenu de la page compétences -->
-    </div>
-    <script src="menu.js"></script>
+
+        <div class="filter-options">
+            <label for="sort">Trier par :</label>
+            <select id="sort">
+                <option value="alphabetique_croissant">Ordre alphabétique croissant</option>
+                <option value="alphabetique_decroissant">Ordre alphabétique décroissant</option>
+                <option value="date_croissante">Date croissante</option>
+                <option value="date_decroissante">Date décroissante</option>
+                <option value="statut">Statut de la compétence</option>
+            </select>
+
+            <label for="filter">Filtrer par :</label>
+            <select id="filter">
+                <option value="matiere">Matière</option>
+                <option value="professeur">Professeur</option>
+                <option value="statut">Statut de la compétence</option>
+            </select>
+
+            <input type="text" id="search" placeholder="Rechercher...">
+        </div>
+
+        <table class="competences-table">
+            <thead>
+                <tr>
+                    <th>Avancement</th>
+                    <th>Matière</th>
+                    <th>Professeur</th>
+                    <th>Date de création</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="radio" name="avancement" value="non-aquis">
+                            Non acquis
+                        </label>
+                        <label>
+                            <input type="radio" name="avancement" value="en-cours">
+                            En cours
+                        </label>
+                        <label>
+                            <input type="radio" name="avancement" value="acquis">
+                            Acquis
+                        </label>
+                    </td>
+                    <td>Mathématiques</td>
+                    <td>Professeur A</td>
+                    <td>01/01/2023</td>
+                    <td>Description de la compétence</td>
+                </tr>
+                <!-- Ajoutez d'autres lignes de compétences ici -->
+            </tbody>
+        </table>
+
+
+        <button id="submit-button">Envoyer les résultats</button>
+
+        <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
+
+        <script src="menu.js"></script>
+        <script src="competences.js"></script>
 </body>
+
 </html>
