@@ -21,7 +21,7 @@
             <button class="tablink active" onclick="openForm('Login')">Se connecter</button>
         </div>
 
-        <form id="Login" class="tabcontent" action="accueil.html" method="post">
+        <form id="Login" class="tabcontent" action="accueilAdmin.html" method="post">
             <div class="form-control">
                 <input type="text" id="login" name="login" required>
                 <label for="login">
