@@ -1,0 +1,304 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3a393a;
+    color: white;
+    text-align: center;
+    padding: 1.5em;
+    margin: 0;
+    font-size: 1.5em;
+    z-index: 3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+input[type="submit"] {
+    background-color: #893281;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+}
+
+body {
+    background-image: url('citroen.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+label,
+input {
+    font-size: 1.2em;
+}
+
+.sidebar a {
+    display: block;
+    color: #e9e1e1;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #f2ecec;
+}
+
+.main {
+    margin-left: 200px;
+    padding: 15px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70vh;
+}
+
+.button {
+    background-color: #893281;
+    color: white;
+    padding: 1.5em 3em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #893281;
+}
+
+.user-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.2em;
+}
+
+.user-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* Menu déroulant */
+
+.menu-btn {
+    z-index: 3;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+/* ... autres styles ... */
+
+input[type="submit"]:hover {
+    background-color: #a94181;
+    /* Une couleur différente pour le survol */
+}
+
+.logo {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 20%;
+}
+
+
+/* ... autres styles ... */
+
+.sidebar.show {
+    transform: translateX(0px);
+    transition: transform 0.3s ease;
+    /* déplacer la transition ici */
+}
+
+.sidebar.hide {
+    transform: translateX(-250px);
+    transition: transform 0.3s ease;
+}
+
+.sidebar {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    width: 200px;
+    transform: translateX(-250px);
+    height: 100vh;
+    background: #2c3336;
+    padding: 20px;
+    padding-top: 60px;
+}
+
+.form-container {
+    width: 40%;
+    margin: auto;
+    background: rgba(243, 243, 243, 0.8);
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Ajustez la hauteur en fonction de vos besoins */
+}
+
+.form-tab {
+    display: flex;
+}
+
+.tablink {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.tablink:hover {
+    background: #ccc;
+}
+
+.tablink.active {
+    background: #bbb;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tabcontent label,
+.tabcontent input,
+.tabcontent select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+
+/* Bouton de défilement vers le haut */
+
+.scrollTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #893281;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.scrollTop:hover {
+    background-color: #a94181;
+}
+
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 190px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px #63255d solid;
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+    color: #000000;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.form-control label {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 15px;
+    min-width: 10px;
+    color: #63255d;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: rgb(0, 0, 0);
+    transform: translateY(-35px);
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.remember-label input[type="checkbox"] {
+    margin-right: 5px;
+}

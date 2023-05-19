@@ -64,7 +64,7 @@ try {
     <script src="menu.js"></script>
 
 
-    <form method="POST" action="AcquisEnAcquisition.php">
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <div>
             <label for="subject">Matière :</label>
             <select name="subject" id="subject" onchange="this.form.submit()">
@@ -82,7 +82,7 @@ try {
                 <?php echo $skill['Competences']; ?>
 
                 <!-- Formulaire pour sélectionner l'état de la compétence -->
-                <form method="POST" action="">
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <input type="hidden" name="subject" value="<?php echo $selectedSubject; ?>">
                     <input type="hidden" name="skill_id" value="<?php echo $skill['id']; ?>">
 
