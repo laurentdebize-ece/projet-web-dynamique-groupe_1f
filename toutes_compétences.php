@@ -49,7 +49,7 @@ try {
         <a href="competences.html">Compétences</a>
         <a href="matieres.html">Matières</a>
         <a href="competences_transverses.html">Compétences transverses</a>
-        <a href="toutes_competences.html">Toutes les compétences</a>
+        <a href="toutes_compétences.php">Toutes les compétences</a>
         <a href="profil.html">Profil</a>
     </nav>
 
