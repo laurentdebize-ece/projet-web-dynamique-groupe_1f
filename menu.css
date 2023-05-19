@@ -129,13 +129,17 @@ input[type="submit"]:hover {
   transform: translateX(0px);
   transition: transform 0.3s ease;  /* déplacer la transition ici */
 }
+.sidebar.hide{
+  transform: translateX(-250px);
+  transition: transform 0.3s ease;
+}
 
 .sidebar {
   z-index: 2;
   position: fixed;
   top: 0px;
-  transform: translateX(-250px);
   width: 200px;
+  transform: translateX(-250px);
   height: 100vh;
   background: #2c3336;
   padding: 20px;

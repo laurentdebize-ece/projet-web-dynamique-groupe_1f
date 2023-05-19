@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     menuBtn.addEventListener('click', () => {
         sidebar.classList.toggle('show');
+        sidebar.classList.toggle('hide');
     });
 });
 
