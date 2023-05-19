@@ -62,6 +62,7 @@
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
     <script src="menu.js"></script>
+    <script src="connexion.js"></script>
 </body>
 
 </html>

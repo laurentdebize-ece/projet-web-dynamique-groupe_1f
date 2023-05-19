@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     menuBtn.addEventListener('click', () => {
         sidebar.classList.toggle('show');
-        sidebar.classList.toggle('hide');
     });
 });
 
@@ -24,10 +23,7 @@ function openForm(formName, event) {
   }
 }
 
-// Afficher le formulaire de connexion par défaut
-window.onload = function() {
-  openForm('Login');
-}
+
 
 // Bouton de défilement vers le haut
 window.onscroll = function() {scrollFunction()};
@@ -46,34 +42,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// Fonction de masquage / affichage du mot de passe pour les champs de mot de passe de l'inscription
-document.querySelector(".toggle-password-reg").addEventListener("click", function() {
-  let passwordInput = document.querySelector("#passwordReg");
-  if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-  } else {
-      passwordInput.type = "password";
-  }
-});
 
-// Fonction de masquage / affichage du mot de passe pour les champs de mot de passe de la confirmation
-document.querySelector(".toggle-password-confirm").addEventListener("click", function() {
-  let passwordInput = document.querySelector("#passwordConfirm");
-  if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-  } else {
-      passwordInput.type = "password";
-  }
-});
-// Fonction de masquage / affichage du mot de passe connexion
-document.querySelector(".toggle-password-co").addEventListener("click", function() {
-  let passwordInput = document.querySelector("#password");
-  if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-  } else {
-      passwordInput.type = "password";
-  }
-});
   
 // Plus tard changer 'remember', 'PasswordRecovery', 'email' par les bonnes infos
 
