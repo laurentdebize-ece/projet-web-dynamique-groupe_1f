@@ -28,37 +28,24 @@
         <div class="form-tab">
             <button class="tablink" onclick="openForm('delete')">Supprimer utilisateur</button>
         </div>
-        <form id="delete" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
+        <form id="delete" class="tabcontent" style="display:none" action="action_suppression.php" method="get">
             <label>Satut :</label>
             <div style="display: flex; justify-content: space-between; width: 90%;">
                 <div>
-                    <input type="radio" id="etudiant" name="class" value="etudiant">
+                    <input type="radio" id="3" name="class" value="3">
                     <label for="etudiant">Etudiant</label>
                 
                 </div>
                 <div>
-                    <input type="radio" id="scolarite" name="class" value="scolarite">
+                    <input type="radio" id="2" name="class" value="2">
                     <label for="scolarite">Professeur</label>
                 </div>
                 <div>
-                    <input type="radio" id="administrateur" name="class" value="administrateur">
+                    <input type="radio" id="1" name="class" value="1">
                     <label for="administrateur">Administrateur</label>
                 </div>
             </div>
-            <div class="form-control">
-                <input type="text" id="codeId" name="codeId" required>
-                <label for="codeId">
-                    <span style="transition-delay:150ms">C</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">d</span>
-                    <span style="transition-delay:300ms">e</span>
-                    <span style="transition-delay:150ms"></span>
-                    <span style="transition-delay:200ms">i</span>
-                    <span style="transition-delay:250ms">d</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <input type="submit" value="Supprimer utilisateur">
+            <input type="submit" value="Confirmer">
         </form>
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
