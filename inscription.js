@@ -1,6 +1,9 @@
+window.onload = function() {
+    openForm('Register');
+}
 // Fonction de masquage / affichage du mot de passe pour les champs de mot de passe de l'inscription
 document.querySelector(".toggle-password-reg").addEventListener("click", function() {
-    let passwordInput = document.querySelector("#passwordReg");
+    let passwordInput = document.querySelector("#password");
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
     } else {
@@ -18,6 +21,3 @@ document.querySelector(".toggle-password-reg").addEventListener("click", functio
     }
   });
   // Afficher le formulaire d'inscription par défaut
-window.onload = function() {
-    openForm('Register');
-}

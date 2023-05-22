@@ -31,107 +31,23 @@
         <div class="form-tab">
             <button class="tablink" onclick="openForm('Register')">S'inscrire</button>
         </div>
-        <form id="Register" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
-            <div class="form-control">
-                <input type="text" id="firstname" name="firstname" required>
-                <label for="firstname">
-                    <span style="transition-delay:0ms">P</span>
-                    <span style="transition-delay:50ms">r</span>
-                    <span style="transition-delay:100ms">é</span>
-                    <span style="transition-delay:150ms">n</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">m</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <div class="form-control">
-                <input type="text" id="lastname" name="lastname" required>
-                <label for="lastname">
-                    <span style="transition-delay:150ms">N</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">m</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <div class="form-control">
-                <input type="text" id="email" name="email" required>
-                <label for="email">
-                    <span style="transition-delay:150ms">E</span>
-                    <span style="transition-delay:200ms">m</span>
-                    <span style="transition-delay:250ms">a</span>
-                    <span style="transition-delay:300ms">i</span>
-                    <span style="transition-delay:300ms">l</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
+        <form id="Register" class="tabcontent" style="display:none" action="action_ajout.php" method="get">
             <label>Statut :</label>
             <div style="display: flex; justify-content: space-between; width: 90%;">
                 <div>
-                    <input type="radio" id="etudiant" name="class" value="etudiant">
+                    <input type="radio" id="etudiant" name="class" value="3">
                     <label for="etudiant">Etudiant</label>
                 </div>
                 <div>
-                    <input type="radio" id="scolarite" name="class" value="scolarite">
-                    <label for="scolarite">Scolarité</label>
+                    <input type="radio" id="scolarite" name="class" value="2">
+                    <label for="scolarite">Professeur</label>
                 </div>
                 <div>
-                    <input type="radio" id="administrateur" name="class" value="administrateur">
+                    <input type="radio" id="administrateur" name="class" value="1">
                     <label for="administrateur">Administrateur</label>
                 </div>
             </div>
-            <div class="form-control">
-                <input type="text" id="codestatut" name="codestatut" required>
-                <label for="codestatut">
-                    <span style="transition-delay:150ms">C</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">d</span>
-                    <span style="transition-delay:300ms">e</span>
-                    <span style="transition-delay:300ms"></span>
-                    <span style="transition-delay:300ms">s</span>
-                    <span style="transition-delay:300ms">t</span>
-                    <span style="transition-delay:300ms">a</span>
-                    <span style="transition-delay:300ms">t</span>
-                    <span style="transition-delay:300ms">u</span>
-                    <span style="transition-delay:300ms">t</span>
-                    <span style="transition-delay:300ms">:</span>
-
-                </label>
-            </div>
-            <div class="form-control">
-                <div class="password-container">
-                    <input type="password" id="passwordReg" name="passwordReg" required>
-                    <label for="passwordReg">
-                        <span style="transition-delay:0ms">P</span>
-                        <span style="transition-delay:50ms">a</span>
-                        <span style="transition-delay:100ms">s</span>
-                        <span style="transition-delay:150ms">s</span>
-                        <span style="transition-delay:200ms">w</span>
-                        <span style="transition-delay:250ms">o</span>
-                        <span style="transition-delay:300ms">r</span>
-                        <span style="transition-delay:350ms">d :</span>
-                    </label>
-                    <span toggle="#passwordreg" class="toggle-password-reg">👁️</span>
-                </div>
-            </div>
-            <div class="form-control">
-                <div class="password-container">
-                    <input type="password" id="passwordConfirm" name="passwordConfirm" required>
-                    <label for="passwordConfirm">
-                        <span style="transition-delay:0ms">C</span>
-                        <span style="transition-delay:50ms">o</span>
-                        <span style="transition-delay:100ms">n</span>
-                        <span style="transition-delay:150ms">f</span>
-                        <span style="transition-delay:200ms">i</span>
-                        <span style="transition-delay:250ms">r</span>
-                        <span style="transition-delay:300ms">m</span>
-                        <span style="transition-delay:350ms">e r</span>
-                        <span style="transition-delay:400ms">pwd:</span>
-                    </label>
-                    <span toggle="#passwordConfirm" class="toggle-password-confirm">👁️</span>
-                </div>
-            </div>
-
-            <input type="submit" value="S'inscrire">
+            <input type="submit" value="Confirmer le statut pour inscription">
         </form>
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
