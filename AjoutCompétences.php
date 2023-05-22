@@ -8,35 +8,45 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['supp_competence'])) {
+        $idCompetence = $_POST['id_competence'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
- 
-    $matiere = $_POST['matieres'];
-    $competence = htmlspecialchars($_POST['competence']);
-
-
-    $sql = "SELECT COUNT(*) FROM competencesmatieres WHERE Matiere = ? AND Competence = ?";
-    $stmt = $bdd->prepare($sql);
-    $stmt->execute([$matiere, $competence]);
-    $count = $stmt->fetchColumn();
-
-    if ($count > 0) {
-        echo "Cette compétence existe déjà.";
-    } else {
-        $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 1)";
-
-
+        $sql = "DELETE FROM competencesmatieres WHERE Competence = ?";
         $stmt = $bdd->prepare($sql);
 
- 
-        if ($stmt->execute([$matiere, $competence])) {
-            echo "Compétence ajoutée avec succès !";
+        if ($stmt->execute([$idCompetence])) {
+            echo "Compétence supprimée avec succès !";
         } else {
-            echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
+            echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo()[2];
+        }
+    } elseif (isset($_POST['ajout_competence'])) {
+        $matiere = $_POST['matieres'];
+        $competence = htmlspecialchars($_POST['competence']);
+
+        // Vérification si la compétence existe déjà
+        $sql = "SELECT COUNT(*) FROM competencesmatieres WHERE Matiere = ? AND Competence = ?";
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute([$matiere, $competence]);
+        $count = $stmt->fetchColumn();
+
+        if ($count > 0) {
+            echo "Cette compétence existe déjà.";
+        } else {
+            $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 1)";
+            $stmt = $bdd->prepare($sql);
+
+            if ($stmt->execute([$matiere, $competence])) {
+                echo "Compétence ajoutée avec succès !";
+            } else {
+                echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
+            }
         }
     }
 }
 ?>
+
+
 
 
 
@@ -88,9 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
               <label for="description">Description de la compétence :</label>
               <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
             </div>
+            <br></br>
+
+            <button type="submit" name="ajout_competence" class="button">Ajouter une compétence</button>
+
             
             <br></br>
-            <input type="submit" value="Ajouter cette compétence">
+            <input type="hidden" name="id_competence" value="">
+            <input type="submit" value="Supprimer cette compétence" name="supp_competence">
         </form>
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
