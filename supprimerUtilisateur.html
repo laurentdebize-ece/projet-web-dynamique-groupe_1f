@@ -29,51 +29,20 @@
             <button class="tablink" onclick="openForm('delete')">Supprimer utilisateur</button>
         </div>
         <form id="delete" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
-            <div class="form-control">
-                <input type="text" id="firstname" name="firstname" required>
-                <label for="firstname">
-                    <span style="transition-delay:0ms">P</span>
-                    <span style="transition-delay:50ms">r</span>
-                    <span style="transition-delay:100ms">é</span>
-                    <span style="transition-delay:150ms">n</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">m</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <div class="form-control">
-                <input type="text" id="lastname" name="lastname" required>
-                <label for="lastname">
-                    <span style="transition-delay:150ms">N</span>
-                    <span style="transition-delay:200ms">o</span>
-                    <span style="transition-delay:250ms">m</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <div class="form-control">
-                <input type="text" id="email" name="email" required>
-                <label for="email">
-                    <span style="transition-delay:150ms">E</span>
-                    <span style="transition-delay:200ms">m</span>
-                    <span style="transition-delay:250ms">a</span>
-                    <span style="transition-delay:300ms">i</span>
-                    <span style="transition-delay:300ms">l</span>
-                    <span style="transition-delay:300ms">:</span>
-                </label>
-            </div>
-            <label>Ecole :</label>
+            <label>Satut :</label>
             <div style="display: flex; justify-content: space-between; width: 90%;">
                 <div>
                     <input type="radio" id="etudiant" name="class" value="etudiant">
-                    <label for="etudiant">HEIP</label>
+                    <label for="etudiant">Etudiant</label>
+                
                 </div>
                 <div>
                     <input type="radio" id="scolarite" name="class" value="scolarite">
-                    <label for="scolarite">ECE</label>
+                    <label for="scolarite">Professeur</label>
                 </div>
                 <div>
                     <input type="radio" id="administrateur" name="class" value="administrateur">
-                    <label for="administrateur">INSEEC</label>
+                    <label for="administrateur">Administrateur</label>
                 </div>
             </div>
             <div class="form-control">
@@ -89,23 +58,6 @@
                     <span style="transition-delay:300ms">:</span>
                 </label>
             </div>
-            <div class="form-control">
-                <div class="password-container">
-                    <input type="password" id="codeIdConfirm" name="codeIdConfirm" required>
-                    <label for="codeIdConfirm">
-                        <span style="transition-delay:0ms">C</span>
-                        <span style="transition-delay:50ms">o</span>
-                        <span style="transition-delay:100ms">n</span>
-                        <span style="transition-delay:150ms">f</span>
-                        <span style="transition-delay:200ms">i</span>
-                        <span style="transition-delay:250ms">r</span>
-                        <span style="transition-delay:300ms">m</span>
-                        <span style="transition-delay:350ms">e r</span>
-                        <span style="transition-delay:400ms">i d :</span>
-                    </label>
-                </div>
-            </div>
-
             <input type="submit" value="Supprimer utilisateur">
         </form>
     </div>
