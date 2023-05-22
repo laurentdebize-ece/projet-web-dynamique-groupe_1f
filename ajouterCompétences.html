@@ -1,27 +1,3 @@
-<?php
-session_start();
-
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=omnesmyskills;charset=utf8', 'root', 'root');
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Erreur : ' . $e->getMessage());
-}
-
-// Ajout d'une compétence
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
-    // Récupérer la matière sélectionnée et la nouvelle compétence
-    $matiere = $_POST['matiere']; // Utilisation de 'matiere' au lieu de 'Matiere'
-    $competence = htmlspecialchars($_POST['competence']);
-
-    // Requête d'insertion dans la base de données
-    $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 0)";
-
-    // Préparation de la requête
-    $stmt = $bdd->prepare($sql);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -52,13 +28,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
         <div class="form-tab">
             <button class="tablink" onclick="openForm('cAdd')">Créer nouvelle compétence</button>
         </div>
-        <form id="cAdd" class="tabcontent" style="display:none" action="" method="post">
-            <div class="form-control">
-            <label for="description">Description de la compétence :</label>
-                <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
+        <form id="cAdd" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
+            <div>
+                <label for="description">Description de la compétence :</label>
+                <textarea id="description" name="description" rows="5" cols="70" required></textarea>
             </div>
-            <!-- Nouveau champ pour la matière -->
             <div class="form-control">
+                <input type="text" id="lastname" name="lastname" required>
+                <label for="lastname">
+                    <span style="transition-delay:50ms">N</span>
+                    <span style="transition-delay:200ms">o</span>
+                    <span style="transition-delay:150ms">m </span>
+                    <span style="transition-delay:200ms">P</span>
+                    <span style="transition-delay:250ms">r o</span>
+                    <span style="transition-delay:300ms">f</span>
+                    <span style="transition-delay:350ms">:</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" id="matieres" name="matieres" required>
                 <label for="matieres">
                     <span style="transition-delay:50ms">M</span>
                     <span style="transition-delay:100ms">a</span>
@@ -70,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
                     <span style="transition-delay:400ms">:</span>
                 </label>
             </div>
-          
             <input type="submit" value="Ajouter cette compétence">
         </form>
     </div>
@@ -80,4 +67,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
 </body>
 
 </html>
-
