@@ -8,19 +8,37 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-// Ajout d'une compétence
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
-    // Récupérer la matière sélectionnée et la nouvelle compétence
-    $matiere = $_POST['matiere']; // Utilisation de 'matiere' au lieu de 'Matiere'
+ 
+    $matiere = $_POST['matieres'];
     $competence = htmlspecialchars($_POST['competence']);
 
-    // Requête d'insertion dans la base de données
-    $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 0)";
 
-    // Préparation de la requête
+    $sql = "SELECT COUNT(*) FROM competencesmatieres WHERE Matiere = ? AND Competence = ?";
     $stmt = $bdd->prepare($sql);
+    $stmt->execute([$matiere, $competence]);
+    $count = $stmt->fetchColumn();
+
+    if ($count > 0) {
+        echo "Cette compétence existe déjà.";
+    } else {
+        $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 1)";
+
+
+        $stmt = $bdd->prepare($sql);
+
+ 
+        if ($stmt->execute([$matiere, $competence])) {
+            echo "Compétence ajoutée avec succès !";
+        } else {
+            echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
+        }
+    }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,12 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
         </div>
         <form id="cAdd" class="tabcontent" style="display:none" action="" method="post">
             <div class="form-control">
-            <label for="description">Description de la compétence :</label>
-                <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
-            </div>
-            <!-- Nouveau champ pour la matière -->
-            <div class="form-control">
-                <label for="matieres">
+              <input type="text" id="matieres" name="matieres" required>
+              <label for="matieres">
                     <span style="transition-delay:50ms">M</span>
                     <span style="transition-delay:100ms">a</span>
                     <span style="transition-delay:150ms">t</span>
@@ -70,7 +84,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
                     <span style="transition-delay:400ms">:</span>
                 </label>
             </div>
-          
+            <div>
+              <label for="description">Description de la compétence :</label>
+              <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
+            </div>
+            
+            <br></br>
             <input type="submit" value="Ajouter cette compétence">
         </form>
     </div>
