@@ -58,7 +58,7 @@ try {
             <span>Bonjour, [Nom d'utilisateur]</span>
             <a href="omnes_my_skills.php">Déconnexion</a>
         </div>
-        <!-- Contenu de la page compétences -->
+
     </div>
 
     <script src="menu.js"></script>
@@ -70,7 +70,6 @@ try {
             <select name="subject" id="subject" onchange="this.form.submit()">
                 <option value="mathematiques" <?php if ($selectedSubject === "mathematiques") { echo "selected"; } ?>>Mathématiques</option>
                 <option value="physique" <?php if ($selectedSubject === "physique") { echo "selected"; } ?>>Physique</option>
-                <!-- Ajouter les autres matières ici -->
             </select>
         </div>
     </form>
@@ -81,18 +80,12 @@ try {
             <li>
                 <?php echo $skill['Competences']; ?>
 
-                <!-- Formulaire pour sélectionner l'état de la compétence -->
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <input type="hidden" name="subject" value="<?php echo $selectedSubject; ?>">
                     <input type="hidden" name="skill_id" value="<?php echo $skill['id']; ?>">
 
-                    <!-- Bouton pour sélectionner "Acquis" -->
                     <input type="submit" name="acquis" value="Acquis">
-
-                    <!-- Bouton pour sélectionner "En Acquisition" -->
                     <input type="submit" name="en_acquisition" value="En Acquisition">
-
-                    <!-- Bouton pour sélectionner "Non Acquis" -->
                     <input type="submit" name="non_acquis" value="Non Acquis">
                 </form>
             </li>
