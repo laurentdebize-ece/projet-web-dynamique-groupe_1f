@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNES MySkills : Inscription</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <button class="menu-btn">☰
+        <span class="text">Menu</span>
+    </button>
+    <nav class="sidebar">
+        <a href="accueilAdmin.html"><i class="fa fa-home"></i> Accueil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="matieres.html">Matières</a>
+        <a href="competences_transverses.html">Compétences transverses</a>
+        <a href="toutes_compétences.html">Toutes les compétences</a>
+        <a href="profil.html">Profil</a>
+    </nav>
+    <h1>OMNES MySkills: Inscription</h1>
+    <a href="https://ece.campusonline.me/fr-fr/Pages/home.aspx">
+        <img src="ece1.png" alt="ece" class="logo">
+    </a>
+    <div class="form-container">
+        <div class="form-tab">
+            <button class="tablink" onclick="openForm('Register')">S'inscrire</button>
+        </div>
+        <form id="Register" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
+            <div class="form-control">
+                <input type="text" id="firstname" name="firstname" required>
+                <label for="firstname">
+                    <span style="transition-delay:0ms">P</span>
+                    <span style="transition-delay:50ms">r</span>
+                    <span style="transition-delay:100ms">é</span>
+                    <span style="transition-delay:150ms">n</span>
+                    <span style="transition-delay:200ms">o</span>
+                    <span style="transition-delay:250ms">m</span>
+                    <span style="transition-delay:300ms">:</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" id="lastname" name="lastname" required>
+                <label for="lastname">
+                    <span style="transition-delay:150ms">N</span>
+                    <span style="transition-delay:200ms">o</span>
+                    <span style="transition-delay:250ms">m</span>
+                    <span style="transition-delay:300ms">:</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" id="email" name="email" required>
+                <label for="email">
+                    <span style="transition-delay:150ms">E</span>
+                    <span style="transition-delay:200ms">m</span>
+                    <span style="transition-delay:250ms">a</span>
+                    <span style="transition-delay:300ms">i</span>
+                    <span style="transition-delay:300ms">l</span>
+                    <span style="transition-delay:300ms">:</span>
+                </label>
+            </div>
+            <label>Statut :</label>
+            <div style="display: flex; justify-content: space-between; width: 90%;">
+                <div>
+                    <input type="radio" id="etudiant" name="class" value="etudiant">
+                    <label for="etudiant">Etudiant</label>
+                </div>
+                <div>
+                    <input type="radio" id="scolarite" name="class" value="scolarite">
+                    <label for="scolarite">Scolarité</label>
+                </div>
+                <div>
+                    <input type="radio" id="administrateur" name="class" value="administrateur">
+                    <label for="administrateur">Administrateur</label>
+                </div>
+            </div>
+            <div class="form-control">
+                <input type="text" id="codestatut" name="codestatut" required>
+                <label for="codestatut">
+                    <span style="transition-delay:150ms">C</span>
+                    <span style="transition-delay:200ms">o</span>
+                    <span style="transition-delay:250ms">d</span>
+                    <span style="transition-delay:300ms">e</span>
+                    <span style="transition-delay:300ms"></span>
+                    <span style="transition-delay:300ms">s</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:300ms">a</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:300ms">u</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:300ms">:</span>
+
+                </label>
+            </div>
+            <div class="form-control">
+                <div class="password-container">
+                    <input type="password" id="passwordReg" name="passwordReg" required>
+                    <label for="passwordReg">
+                        <span style="transition-delay:0ms">P</span>
+                        <span style="transition-delay:50ms">a</span>
+                        <span style="transition-delay:100ms">s</span>
+                        <span style="transition-delay:150ms">s</span>
+                        <span style="transition-delay:200ms">w</span>
+                        <span style="transition-delay:250ms">o</span>
+                        <span style="transition-delay:300ms">r</span>
+                        <span style="transition-delay:350ms">d :</span>
+                    </label>
+                    <span toggle="#passwordreg" class="toggle-password-reg">👁️</span>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="password-container">
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                    <label for="passwordConfirm">
+                        <span style="transition-delay:0ms">C</span>
+                        <span style="transition-delay:50ms">o</span>
+                        <span style="transition-delay:100ms">n</span>
+                        <span style="transition-delay:150ms">f</span>
+                        <span style="transition-delay:200ms">i</span>
+                        <span style="transition-delay:250ms">r</span>
+                        <span style="transition-delay:300ms">m</span>
+                        <span style="transition-delay:350ms">e r</span>
+                        <span style="transition-delay:400ms">pwd:</span>
+                    </label>
+                    <span toggle="#passwordConfirm" class="toggle-password-confirm">👁️</span>
+                </div>
+            </div>
+
+            <input type="submit" value="S'inscrire">
+        </form>
+    </div>
+    <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
+    <script src="menu.js"></script>
+    <script src="inscription.js"></script>
+</body>
+
+</html>

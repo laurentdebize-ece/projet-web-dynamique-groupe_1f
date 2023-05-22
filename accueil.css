@@ -1,0 +1,72 @@
+/* Définition du style pour le corps de la page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Définition du style pour l'en-tête */
+.header {
+    background-color: #ffa8c6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+/* Définition du style pour le logo */
+.logo {
+    height: 80px;
+    opacity: 0.8;
+}
+
+/* Définition du style pour le message de bienvenue */
+.welcome {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Définition du style pour la barre latérale */
+.sidebar {
+    background-color: #5dbcd2;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    overflow-y: auto;
+}
+
+/* Définition du style pour les titres de la barre latérale */
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Définition du style pour les liens de la barre latérale */
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Définition du style pour les liens actifs de la barre latérale */
+.sidebar a.active {
+    font-weight: bold;
+}
+
+/* Définition du style pour le contenu principal */
+.content {
+    margin: 100px 0 0 220px;
+    padding: 20px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une compétence transverses</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+        <button class="menu-btn">☰
+        <span class="text">Menu</span>
+    </button>
+    <nav class="sidebar">
+        <a href="accueilAdmin.html"><i class="fa fa-home"></i> Accueil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="matieres.html">Matières</a>
+        <a href="competences_transverses.html">Compétences transverses</a>
+        <a href="toutes_compétences.html">Toutes les compétences</a>
+        <a href="profil.html">Profil</a>
+    </nav>
+    
+    <h1>Ajouter une compétence transverses</h1>
+    <div class="form-container">
+        <div class="form-tab">
+            <button class="tablink" onclick="openForm('cTAdd')">Créer nouvelle compétence transverses</button>
+        </div>
+        <form id="cTAdd" class="tabcontent" style="display:none" action="accueilAdmin.html" method="post">
+            <div>
+                <label for="description">Description de la compétence :</label>
+                <textarea id="description" name="description" rows="5" cols="70" required></textarea>
+            </div>
+            <div class="form-control">
+                <input type="text" id="lastname" name="lastname" required>
+                <label for="lastname">
+                    <span style="transition-delay:50ms">N</span>
+                    <span style="transition-delay:200ms">o</span>
+                    <span style="transition-delay:150ms">m </span>
+                    <span style="transition-delay:200ms">A</span>
+                    <span style="transition-delay:250ms">d</span>
+                    <span style="transition-delay:300ms">m</span>
+                    <span style="transition-delay:350ms">i</span>
+                    <span style="transition-delay:400ms">n</span>
+                    <span style="transition-delay:450ms">:</span>
+                </label>
+            </div>
+            <label>Ecoles concernées :</label>
+            <div style="display: flex; justify-content: space-between; width: 90%;">
+                <div>
+                    <input type="checkbox" id="ecole1" name="class" value="ecole1">
+                    <label for="ecole1">INSEEC</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ecole2" name="class" value="ecole2">
+                    <label for="ecole2">ECE</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ecole3" name="class" value="ecole3">
+                    <label for="ecole3">HEIP</label>
+                </div>
+            </div>
+            <input type="submit" value="Ajouter cette compétence transverses">
+        </form>
+    </div>
+    <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
+    <script src="menu.js"></script>
+    <script src="ajouterCompetenceT.js"></script>
+</body>
+</html>
