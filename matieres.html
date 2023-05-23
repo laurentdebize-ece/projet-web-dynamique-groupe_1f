@@ -31,8 +31,122 @@
         </div>
         <!-- Contenu de la page compétences -->
     </div>
+    <style>
 
-    <script src="menu.js"></script>
+.carousel {
+            display: flex;
+            overflow-x: scroll;
+            
+
+        }
+
+        .box {
+            border: 1px solid black;
+            flex: 0 0 calc(100% / 3); /* Affiche trois boîtes par page */
+            max-width: calc(100% / 3);
+            
+          padding: 10px;
+          margin: 10px;
+          width: 200x;
+          height: 240px;
+          display: inline-block;
+          cursor: pointer;
+          text-align: center;
+          box-shadow: 0px 5px 8px #000;
+          transition: all 300ms ease-in-out;
+          
+
+        }
+       
+        
+        .box:hover {
+          background-color: rgb(2, 0, 113); 
+          box-shadow: 0px 10px 40px;
+            color: rgb(0, 126, 114);
+            width: 202px;
+            height: 243px;
+           
+        }
+
+
+        
+        .box img {
+            width: 100%;
+        height: 100%;
+
+          object-fit: cover;
+        }
+        .logo{
+            position: relative;
+
+        }
+        .box-heading {
+            margin-top: -268px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+
+        }
+        
+    </style>
+<img src="ece.png"  width="250" height="100">
+
+    <div class="carousel">
+
+
+
+        <!-- Première rangée de boîtes -->
+
+        <div class="box"onclick="window.location.href='#maths'">
+
+
+            <img src="math2.jpg" src="Mathématiques">
+            <h2 class="box-heading">Mathématiques</h2>
+
+        </div>
+        <div class="box"class="box" onclick="window.location.href='#physique'">
+
+            <img src="physique2.jpg" src="Physique">
+            <h2 class="box-heading">Physique</h2>
+           </div>
+        <div class="box"class="box" onclick="window.location.href='#info'">
+            <img src="info.jpeg" src="info">
+            <h2 class="box-heading">Informatique</h2>
+
+    </div>
+        <!-- Deuxième rangée de boîtes -->
+        <div class="box"class="box" onclick="window.location.href='#elec'">
+
+            <img src="elec.jpg" src="elec">
+            <h2 class="box-heading">Electronique</h2>
+
+        </div>
+        <div class="box"class="box" onclick="window.location.href='#english'">
+
+            <img src="english.jpg" src="english">
+            <h2 class="box-heading">Anglais</h2>
+
+        </div>
+        <div class="box"class="box" onclick="window.location.href='#langues'">
+
+            <img src="lv2.jpg" src="Langues étrangères">
+            <h2 class="box-heading">Lv2</h2>
+
+        </div>
+    </div>
+ 
+</div>
+<script>
+      
+    function scrollCarousel(direction) {
+        const carousel = document.querySelector('.carousel');
+        carousel.scrollBy({
+            left: carousel.offsetWidth * direction,
+            behavior: 'smooth'
+        });
+    }
+</script>
+<script src="menu.js"></script>
+
 </body>
-
 </html>

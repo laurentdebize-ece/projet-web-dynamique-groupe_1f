@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-// Assurez-vous que l'utilisateur est connecté
-if (!isset($_SESSION['userId']) || !isset($_SESSION['accountType'])) {
-    
-    exit();
-}
-
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=BDMYSKILLS;charset=utf8', 'root', 'root');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,10 +21,10 @@ switch ($_SESSION['accountType']) {
         $tableName = 'Administrateur';
         break;
 }
-
+$userID = $_SESSION['userID'];
 $sql = "SELECT * FROM $tableName WHERE ID = ?";
 $stmt = $bdd->prepare($sql);
-$stmt->execute([$_SESSION['userId']]);
+$stmt->execute([$_SESSION['userID']]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Assurez-vous que les données de l'utilisateur ont été récupérées
