@@ -2,7 +2,7 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=omnesmyskills;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=BDMYSKILLS;charset=utf8', 'root', 'root');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'])) {
     $selectedSubject = $_POST['subject'];
 } else {
     // Valeur par défaut si aucune matière sélectionnée
-    $selectedSubject = "mathematiques";
+    $selectedSubject = "competence";
 }
 
 try {
@@ -26,26 +26,35 @@ try {
 }
 
 try {
+    // Récupération de l'ID de l'étudiant connecté
+    if (isset($_SESSION['ID_Etudiant'])) {
+        $idEtudiant = $_SESSION['ID_Etudiant'];
+    } else {
+        echo "Vous n'etes pas connecté";
+    }
+
     // Mettre à jour l'état de la compétence dans la base de données
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'avancement') === 0) {
             $skillId = substr($key, 11);
             if ($value === 'acquis') {
-                $sql = "UPDATE " . $selectedSubject . " SET Acquis = 1, EnAcquisition = 0, NonAcquis = 0 WHERE id = ?";
+                $acquisition = 1;
             } elseif ($value === 'en-cours') {
-                $sql = "UPDATE " . $selectedSubject . " SET Acquis = 0, EnAcquisition = 1, NonAcquis = 0 WHERE id = ?";
-            } else { // $value === 'non-aquis'
-                $sql = "UPDATE " . $selectedSubject . " SET Acquis = 0, EnAcquisition = 0, NonAcquis = 1 WHERE id = ?";
+                $acquisition = 2;
+            } else {
+                $acquisition = 3;
             }
+            $sql = "UPDATE Acquisition SET Acquisition = ? WHERE ID_Competence = ? AND ID_Etudiant = ?";
             $stmt = $bdd->prepare($sql);
-            $stmt->execute([$skillId]);
+            $stmt->execute([$acquisition, $skillId, $idEtudiant]);
         }
     }
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -109,20 +118,20 @@ try {
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['id']; ?>" value="non-aquis">
+                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="non-acquis">
                             Non acquis
                         </label>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['id']; ?>" value="en-cours">
+                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="en-cours">
                             En cours
                         </label>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['id']; ?>" value="acquis">
+                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="acquis">
                             Acquis
                         </label>
                     </td>
                     <td><?php echo $selectedSubject; ?></td>
-                    <td><?php echo $skill['Competences']; ?></td>
+                    <td><?php echo $skill['NomCompetence']; ?></td>
                 </tr>
                 <?php } ?>
             </tbody>

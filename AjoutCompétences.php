@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $matiere = $_POST['Matiere'];
         $nomCompetence = $_POST['NomCompetence'];
 
-
         $sql = "DELETE FROM competence WHERE Matiere = ? AND NomCompetence = ?";
         $stmt = $bdd->prepare($sql);
 
@@ -40,6 +39,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($stmt->execute([$matiere, $competence])) {
                 echo "Compétence ajoutée avec succès !";
+                
+                // Récupérer l'ID de la compétence insérée
+                $idCompetence = $bdd->lastInsertId();
+                
+                // Récupérer tous les ID_Etudiant
+                $sqlEtud = "SELECT ID FROM etudiant";
+                $stmtEtud = $bdd->query($sqlEtud);
+                $etudiants = $stmtEtud->fetchAll(PDO::FETCH_ASSOC);
+    
+                // Insérer dans la table acquisition pour chaque ID_Etudiant
+                $sql3 = "INSERT INTO acquisition (ID_Competence, ID_Etudiant, Acquisition) VALUES (?, ?, '3')";
+                $stmt3 = $bdd->prepare($sql3);
+    
+                foreach ($etudiants as $etudiant) {
+                    $ID_Etudiant = $etudiant['ID'];
+    
+                    if ($stmt3->execute([$idCompetence, $ID_Etudiant])) {
+
+                    } else {
+                    
+                    }
+                }
             } else {
                 echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
             }
