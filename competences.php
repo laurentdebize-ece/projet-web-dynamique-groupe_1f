@@ -27,8 +27,8 @@ try {
 
 try {
     // Récupération de l'ID de l'étudiant connecté
-    if (isset($_SESSION['ID_Etudiant'])) {
-        $idEtudiant = $_SESSION['ID_Etudiant'];
+    if (isset($_SESSION['idEtudiant'])) {
+        $idEtudiant = $_SESSION['idEtudiant'];
     } else {
         echo "Vous n'etes pas connecté";
     }
@@ -75,12 +75,12 @@ try {
         <span class="text">Menu</span>
     </button>
     <nav class="sidebar">
-        <a href="accueilAdmin.html"><i class="fa fa-home"></i> Accueil</a>
-        <a href="competences.html">Compétences</a>
+        <a href="accueilEtudiant.html"><i class="fa fa-home"></i> Accueil</a>
+        <a href="competences.php">Compétences</a>
         <a href="matieres.html">Matières</a>
         <a href="competences_transverses.html">Compétences transverses</a>
         <a href="toutes_compétences.html">Toutes les compétences</a>
-        <a href="profil.html">Profil</a>
+        <a href="profil.php">Profil</a>
     </nav>
 
     <div class="main">
