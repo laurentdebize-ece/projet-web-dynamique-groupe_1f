@@ -27,10 +27,11 @@ try {
 
 try {
     // Récupération de l'ID de l'étudiant connecté
-    if (isset($_SESSION['idEtudiant'])) {
-        $idEtudiant = $_SESSION['idEtudiant'];
+    if (isset($_SESSION['userID'])) {
+        $idEtudiant = $_SESSION['userID'];
     } else {
-        echo "Vous n'etes pas connecté";
+        echo "Vous n'êtes pas connecté";
+        exit();
     }
 
     // Mettre à jour l'état de la compétence dans la base de données
@@ -96,9 +97,9 @@ try {
             <label for="filter">Avancement :</label>
             <p>&ensp;</p>
             <select id="filter">
-                <option value="statut">Aquis</option>
-                <option value="statut">En cours d'aquisition</option>
-                <option value="statut">Non aquis</option>
+                <option value="Acquis">Aquis</option>
+                <option value="Encours">En cours d'aquisition</option>
+                <option value="Nonacquis">Non aquis</option>
             </select>
             <p>&ensp;</p>
 
@@ -118,19 +119,19 @@ try {
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="non-acquis">
+                            <input type="radio" name="avancement-<?php echo $skill['ID']; ?>" value="non-acquis">
                             Non acquis
                         </label>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="en-cours">
+                            <input type="radio" name="avancement-<?php echo $skill['ID']; ?>" value="en-cours">
                             En cours
                         </label>
                         <label>
-                            <input type="radio" name="avancement-<?php echo $skill['Acquisition']; ?>" value="acquis">
+                            <input type="radio" name="avancement-<?php echo $skill['ID']; ?>" value="acquis">
                             Acquis
                         </label>
                     </td>
-                    <td><?php echo $selectedSubject; ?></td>
+                    <td><?php echo $skill['Matiere']; ?></td>
                     <td><?php echo $skill['NomCompetence']; ?></td>
                 </tr>
                 <?php } ?>
