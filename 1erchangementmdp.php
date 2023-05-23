@@ -1,4 +1,5 @@
 <?php
+session_start();
 header("no-cache, no-store, must-revalidate");
 try
 {
@@ -21,6 +22,8 @@ switch($_POST["class"]) {
         ) {
             if(htmlspecialchars($_POST["email"]) == $row['Email'] 
             && htmlspecialchars($_POST["oldPassword"]) == $row['MotDePasse']) {
+                $_SESSION['userID'] = $row['ID'];
+                $_SESSION['accountType'] = 'administrateur';
                 $bdd->query("UPDATE Administrateur SET MotDePasse = '{$_POST['newPassword']}' WHERE ID = '{$row['ID']}'");
                 header('Location: accueilAdmin.html');
             } else {
@@ -37,6 +40,8 @@ switch($_POST["class"]) {
         ) {
             if(htmlspecialchars($_POST["email"]) == $row['Email'] 
             && htmlspecialchars($_POST["oldPassword"]) == $row['MotDePasse']) {
+                $_SESSION['userID'] = $row['ID'];
+                $_SESSION['accountType'] = 'professeur';
                 $bdd->query("UPDATE Professeur SET MotDePasse = '{$_POST['newPassword']}' WHERE ID = '{$row['ID']}'");
                 header('Location: accueilProf.html');
             } else {
@@ -53,6 +58,8 @@ switch($_POST["class"]) {
         ) {
             if(htmlspecialchars($_POST["email"]) == $row['Email'] 
             && htmlspecialchars($_POST["oldPassword"]) == $row['MotDePasse']) {
+                $_SESSION['userID'] = $row['ID'];
+                $_SESSION['accountType'] = 'etudiant';
                 $bdd->query("UPDATE Etudiant SET MotDePasse = '{$_POST['newPassword']}' WHERE ID = '{$row['ID']}'");
                 header('Location: accueilEtudiant.html');
             } else {

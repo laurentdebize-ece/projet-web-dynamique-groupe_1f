@@ -8,7 +8,6 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-// Récupération des informations du compte de l'utilisateur
 $tableName = '';
 switch ($_SESSION['accountType']) {
     case 'etudiant':
@@ -27,7 +26,6 @@ $stmt = $bdd->prepare($sql);
 $stmt->execute([$_SESSION['userID']]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Assurez-vous que les données de l'utilisateur ont été récupérées
 if (!$userData) {
     die('Erreur : impossible de récupérer les informations du compte');
 }
@@ -64,7 +62,7 @@ if (!$userData) {
             <span>Bonjour, <?php echo $userData['Prenom'] . ' ' . $userData['Nom']; ?></span>
             <a href="omnes_my_skills.php">Déconnexion</a>
         </div>
-        <!-- Contenu de la page compétences -->
+
     </div>
     <div class="form-container">
         <ul>
