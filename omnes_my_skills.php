@@ -20,8 +20,23 @@
         <div class="form-tab">
             <button class="tablink active" onclick="openForm('Login')">Se connecter</button>
         </div>
+        <form id="Login" class="tabcontent" action="action_connexion.php" method="post">
+            <label>Satut :</label>
+            <div style="display: flex; justify-content: space-between; width: 90%;">
+                <div>
+                    <input type="radio" id="3" name="class" value="3">
+                    <label for="etudiant">Etudiant</label>
 
-        <form id="Login" class="tabcontent" action="accueilAdmin.html" method="post">
+                </div>
+                <div>
+                    <input type="radio" id="2" name="class" value="2">
+                    <label for="scolarite">Professeur</label>
+                </div>
+                <div>
+                    <input type="radio" id="1" name="class" value="1">
+                    <label for="administrateur">Administrateur</label>
+                </div>
+            </div>
             <div class="form-control">
                 <input type="text" id="login" name="login" required>
                 <label for="login">
