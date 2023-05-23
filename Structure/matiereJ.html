@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNES MySkills - Matières</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="menuJ.css">
+    <style>
+    
+        body { 
+  
+ 
+  background-image: url('Omnes background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+
+}
+    
+        .carousel {
+            display: flex;
+            overflow-x: scroll;
+              
+        }
+
+        .box {
+            border: 1px solid black;
+            flex: 0 0 calc(100% / 3); /* Affiche trois boîtes par page */
+            max-width: calc(100% / 3);
+            border: 1px solid black;
+          padding: 10px;
+          margin: 10px;
+          width: 200x;
+          height: 240px;
+          display: inline-block;
+          cursor: pointer;
+          text-align: center;
+        }
+        .box:hover {
+          background-color: rgb(2, 0, 113); 
+        }
+        
+
+        .carousel-btn {
+            margin-top: 10px;
+        }
+        .box img {
+            width: 100%;
+        height: 100%;
+        
+          object-fit: cover;
+        }
+        .logo{
+            position: relative;
+          
+        }
+        .box-heading {
+            margin-top: -268px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            
+        }
+
+
+   
+    
+    
+    </style>
+</head>
+
+<body>
+    <h1>Matières</h1>
+    <img src="ece1.png" alt="ece" class="logo"> 
+    <button class="menu-btn">☰
+        <span class="text">Menu</span>
+    </button>
+    <nav class="sidebar">
+        <a href="accueilAdminJ.html"><i class="fa fa-home"></i> Accueil</a>
+        <a href="competencesJ.html">Compétences</a>
+        <a href="matierej.html">Matières</a>
+        <a href="competences_TransversesJ.html">Compétences transverses</a>
+        <a href="toutes_compétences.html">Toutes les compétences</a>
+        <a href="profilj.html">Profil</a>
+    </nav>
+
+    <div class="main">
+        <div class="user-info">
+            <span>Bonjour, [Nom d'utilisateur]</span>
+            <a href="omnes_my_skills.php">Déconnexion</a>
+        </div>
+        <!-- Contenu de la page compétences -->
+       
+
+        <div class="carousel">
+
+
+
+
+            <!-- Première rangée de boîtes -->
+            
+            <div class="box"onclick="window.location.href='#maths'">
+                
+    
+                <img src="math.jpg" src="Mathématiques">
+                <h2 class="box-heading">Mathématiques</h2>
+           
+                
+            </div>
+            <div class="box"class="box" onclick="window.location.href='#physique'">
+         
+                <img src="physique.jpg" alt="Physique">
+                <h2 class="box-heading">Physique</h2>
+        
+            </div>
+            <div class="box"class="box" onclick="window.location.href='#info'">
+          
+                <img src="info.jpeg" alt="info">
+                <h2 class="box-heading">Info</h2>
+           
+                
+            </div>
+            
+
+            <!-- Deuxième rangée de boîtes -->
+            <div class="box"class="box" onclick="window.location.href='#elec'">
+         
+                <img src="elec.jpg" alt="elec">
+                <h2 class="box-heading">Elec</h2>
+              
+            </div>
+            <div class="box"class="box" onclick="window.location.href='#english'">
+          
+                <img src="english.jpg" alt="english">
+                <h2 class="box-heading">Anglais</h2>
+                
+            </div>
+            <div class="box"class="box" onclick="window.location.href='#langues'">
+        
+                <img src="lv2.jpg" alt="Langues étrangères">
+                <h2 class="box-heading">Lv2</h2>
+              
+            </div>
+        </div>
+
+      
+        <div class="carousel-btn">
+            <button onclick="scrollCarousel(-1)"></button>
+            <button onclick="scrollCarousel(1)"></button>
+        </div>
+    </div>
+    <script>
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            carousel.scrollBy({
+                left: carousel.offsetWidth * direction,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <script src="menuJ.js"></script>
+</body>
+
+</html>

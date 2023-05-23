@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNES MySkills - Accueil</title>
+    <link rel="stylesheet" href="menuJ.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <h1>Bienvenue sur OMNES MySkills</h1>
+    <div class="sidebar show">
+        <a href="accueilEtudiantj'.html"><i class="fa fa-home"></i> Accueil</a>
+        <a href="competences.html">Mes compétences</a>
+        <a href="matiereJ.html">Matières</a>
+        <a href="competences_TransversesJ.html">Compétences transverses</a>
+        <a href="toutes_competences.html">Toutes les compétences</a>
+        <a href="profilJ.html">Mon compte</a>
+    </div>
+
+    <div class="main">
+        <div class="user-info">
+            <span>Bonjour, [Nom d'utilisateur]</span>
+            <a href="omnes_my_skills.php">Déconnexion</a>
+        </div>
+      
+
+    <style>
+       
+
+        .carousel-box-title {
+            margin-top: 80px;
+            font-size: 30px;
+            color: #ffff;
+        }
+        
+        
+        .carousel {
+            display: flex;
+            overflow-x: scroll;
+            
+           
+          
+          
+           
+        }
+
+        .carousel-box {
+            border: 1px solid black;
+            flex: 0 0 calc(100% / 3); /* Affiche trois boîtes par page */
+            max-width: calc(100% / 3);
+            border: 1px solid black;
+            padding: 10px;
+          margin: 10px;
+          width: 350x;
+          height: 350px;
+          display: inline-block;
+          cursor: pointer;
+          text-align: center;
+        }
+     
+
+       
+     
+    
+          
+        
+        .carouse-box-heading {
+            margin-top: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+        }
+
+        .acceder-btn {
+    position: relative;
+    top:130px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    width: 100%;
+    text-transform: capitalize;
+    background-color: transparent;
+    font-size: 30px;
+    
+    border: none;
+    outline: none;
+
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 1;
+    
+    
+  
+        }
+  .acceder-btn:hover {
+    background: #ea0000;
+    color: #0f0f0f;
+  }
+
+  body { 
+  
+ 
+  background-image: url('immeuble citroen2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+
+}
+    </style>
+</head>
+<body>
+  
+        <!-- Barre de navigation latérale -->
+    </div>
+
+
+    <div class="carousel">
+
+
+
+
+        <!-- Première rangée de boîtes -->
+        
+        <div class="carousel-box"onclick="window.location.href='#maths'">
+
+            
+            <h2 class="carousel-box-title">Mes Compétences</h2>
+            <button class="acceder-btn">Acceder</button>
+       
+            
+        </div>
+        <div class="carousel-box"onclick="window.location.href='#maths'">
+
+            
+            <h2 class="carousel-box-title">Mes matières</h2>
+            <button class="acceder-btn">Acceder</button>
+    
+        </div>
+        <div class="carousel-box"onclick="window.location.href='#maths'">
+
+            
+            <h2 class="carousel-box-title">compétences transverses</h2>
+            <button class="acceder-btn">Acceder</button>
+       
+            
+        </div>
+        
+
+        <!-- Deuxième rangée de boîtes -->
+        <div class="carousel-box"onclick="window.location.href='#maths'">
+
+            
+            <h2 class="carousel-box-title">Toutes les compétences</h2>
+            <button class="acceder-btn">Acceder</button>
+          
+        </div>
+        <div class="carousel-box"onclick="window.location.href='#maths'">
+
+            
+            <h2 class="carousel-box-title">Mon compte</h2>
+            <button class="acceder-btn">Acceder</button>
+            
+        </div> 
+</div>
+<script>
+    function scrollCarousel(direction) {
+        const carousel = document.querySelector('.carousel');
+        carousel.scrollBy({
+            left: carousel.offsetWidth * direction,
+            behavior: 'smooth'
+        });
+    }
+</script>
+</body>
+
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réinitialisation du mot de passe</title>
+    <link rel="stylesheet" href="menuJ.css">
+</head>
+
+<body>
+    <h1>Changer son mot de passe</h1>
+    <div class="form-container">
+        <form id="changePasswordForm" action="accueilEtudiant.html" method="post">
+            <div class="form-control">
+                <input type="text" id="email" name="email" required>
+                <label for="email">
+                    <span style="transition-delay:150ms">E</span>
+                    <span style="transition-delay:200ms">m</span>
+                    <span style="transition-delay:250ms">a</span>
+                    <span style="transition-delay:300ms">i</span>
+                    <span style="transition-delay:300ms">l</span>
+                    <span style="transition-delay:300ms">:</span>
+                </label>
+            </div>
+
+            <div class="form-control">
+                <div class="password-container">
+                    <input type="password" id="newPassword" name="newPassword" required>
+                    <label for="newPassword">
+                        <span style="transition-delay:0ms">N</span>
+                        <span style="transition-delay:0ms">e</span>
+                        <span style="transition-delay:0ms">w</span>
+                        <span style="transition-delay:0ms">p</span>
+                        <span style="transition-delay:50ms">a</span>
+                        <span style="transition-delay:100ms">s</span>
+                        <span style="transition-delay:150ms">s</span>
+                        <span style="transition-delay:200ms">w</span>
+                        <span style="transition-delay:250ms">o</span>
+                        <span style="transition-delay:300ms">r</span>
+                        <span style="transition-delay:350ms">d :</span>
+                    </label>
+                    <span toggle="#newPassword" class="toggle-password-change">👁️</span>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <label for="confirmPassword">
+                        <span style="transition-delay:0ms">C</span>
+                        <span style="transition-delay:50ms">o</span>
+                        <span style="transition-delay:100ms">n</span>
+                        <span style="transition-delay:150ms">f</span>
+                        <span style="transition-delay:200ms">i</span>
+                        <span style="transition-delay:250ms">r</span>
+                        <span style="transition-delay:300ms">m</span>
+                        <span style="transition-delay:350ms">e r</span>
+                        <span style="transition-delay:400ms">pwd:</span>
+                    </label>
+                    <span toggle="#confirmPassword" class="toggle-password-con">👁️</span>
+                </div>
+            </div>
+            <input type="submit" value="Réinitialiser le mot de passe">
+    </div>
+    <script src="menuJ.js"></script>
+    <script src="changePwd.js"></script>
+</body>
+
+</html>
