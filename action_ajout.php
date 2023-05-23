@@ -51,14 +51,6 @@ try {
                 </div>
                 <form id="Register" class="tabcontent" style="display:none" method="post">
                     <div class="form-control">
-                        <input type="text" id="id" name="id" required>
-                        <label for="id">
-                            <span style="transition-delay:150ms">I</span>
-                            <span style="transition-delay:200ms">D</span>
-                            <span style="transition-delay:300ms">:</span>
-                        </label>
-                    </div>
-                    <div class="form-control">
                         <input type="text" id="nom" name="nom" required>
                         <label for="nom">
                             <span style="transition-delay:150ms">N</span>
@@ -125,27 +117,21 @@ try {
             <script src="inscription.js"></script>
             <?php
             $reqtot = $bdd->query("SELECT * FROM Administrateur");
+            $row = $reqtot->fetch();
             echo 'ok 1.1 <br>';
             if (
-                isset($_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["poste"])
-                && !empty($_POST["id"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
+                isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["poste"])
+                && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
                 && !empty($_POST["password"]) && !empty($_POST["poste"])
             ) {
                 echo 'ok 1.2 <br>';
-                while ($row = $reqtot->fetch()) {
-                    echo 'ok 1.3 <br>';
-                    if (
-                        htmlspecialchars($_POST["id"] != $row["ID"])
-                        && htmlspecialchars($_POST["email"] != $row["Email"])
-                        && htmlspecialchars($_POST["password"] != $row["MotDePasse"])
-                    ) {
-                        $response = $bdd->prepare("INSERT INTO Administrateur VALUES (?,?,?,?,?,?)");
-                        $response->execute([$_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["poste"]]);
+                if ($_POST["email"] != $row["Email"] && $_POST["password"] != $row["MotDePasse"]) {
+                        $response = $bdd->prepare("INSERT INTO Administrateur (Nom,Prenom,Email,MotDePasse,Poste) VALUES (?,?,?,?,?)");
+                        $response->execute([$_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["poste"]]);
                         echo 'successed 1 <br>';
-                        break;
-                    } else {
-                        echo 'failed 1 <br>';
-                    }
+                        break;                    
+                } else {
+                    echo 'failed 1 <br>';
                 }
             }
             break;
@@ -156,14 +142,6 @@ try {
                     <button class="tablink" onclick="openForm('Register')">S'inscrire</button>
                 </div>
                 <form id="Register" class="tabcontent" style="display:none" method="post">
-                    <div class="form-control">
-                        <input type="text" id="id" name="id" required>
-                        <label for="id">
-                            <span style="transition-delay:150ms">I</span>
-                            <span style="transition-delay:200ms">D</span>
-                            <span style="transition-delay:300ms">:</span>
-                        </label>
-                    </div>
                     <div class="form-control">
                         <input type="text" id="nom" name="nom" required>
                         <label for="nom">
@@ -250,25 +228,20 @@ try {
             $reqtot = $bdd->query("SELECT * FROM Professeur");
             $row = $reqtot->fetch();
             if (
-                isset($_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["classe"], $_POST["matiere"])
-                && !empty($_POST["id"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
+                isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["classe"], $_POST["matiere"])
+                && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
                 && !empty($_POST["password"]) && !empty($_POST["classe"]) && !empty($_POST["matiere"])
             ) {
                 echo 'ok 2.2 <br>';
-                while ($row) {
+                if ($_POST["email"] != $row["Email"] && $_POST["password"] != $row["MotDePasse"]) {
                     echo 'ok 2.3 <br>';
-                    if (
-                        htmlspecialchars($_POST["id"] != $row["ID"])
-                        && htmlspecialchars($_POST["email"] != $row["Email"])
-                        && htmlspecialchars($_POST["password"] != $row["MotDePasse"])
-                    ) {
-                        $response = $bdd->prepare("INSERT INTO Professeur VALUES (?,?,?,?,?,?,?)");
-                        $response->execute([$_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["classe"], $_POST["matiere"]]);
+                   
+                        $response = $bdd->prepare("INSERT INTO Professeur (Nom,Prenom,Email,MotDePasse,Classes,Matiere) VALUES (?,?,?,?,?,?)");
+                        $response->execute([$_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["classe"], $_POST["matiere"]]);
                         echo 'successed 2 <br>';
                         break;
                     } else {
                         echo 'failed 2 <br>';
-                    }
                 }
             }
             break;
@@ -279,14 +252,6 @@ try {
                     <button class="tablink" onclick="openForm('Register')">S'inscrire</button>
                 </div>
                 <form id="Register" class="tabcontent" style="display:none" method="post">
-                    <div class="form-control">
-                        <input type="text" id="id" name="id" required>
-                        <label for="id">
-                            <span style="transition-delay:150ms">I</span>
-                            <span style="transition-delay:200ms">D</span>
-                            <span style="transition-delay:300ms">:</span>
-                        </label>
-                    </div>
                     <div class="form-control">
                         <input type="text" id="nom" name="nom" required>
                         <label for="nom">
@@ -381,25 +346,19 @@ try {
             $reqtot = $bdd->query("SELECT * FROM Etudiant");
             $row = $reqtot->fetch();
             if (
-                isset($_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["ecole"], $_POST["groupe"], $_POST["promo"])
-                && !empty($_POST["id"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
+                isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["ecole"], $_POST["groupe"], $_POST["promo"])
+                && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"])
                 && !empty($_POST["password"]) && !empty($_POST["ecole"]) && !empty($_POST["groupe"]) && !empty($_POST["promo"])
             ) {
                 echo 'ok 3.2 <br>';
-                while ($row) {
+                if ($_POST["email"] != $row["Email"] && $_POST["password"] != $row["MotDePasse"]) {
                     echo 'ok 3.3 <br>';
-                    if (
-                        htmlspecialchars($_POST["id"] != $row["ID"])
-                        && htmlspecialchars($_POST["email"] != $row["Email"])
-                        && htmlspecialchars($_POST["password"] != $row["MotDePasse"])
-                    ) {
-                        $response = $bdd->prepare("INSERT INTO Etudiant VALUES (?,?,?,?,?,?,?,?)");
-                        $response->execute([$_POST["id"], $_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["ecole"], $_POST["groupe"], $_POST["promo"]]);
+                        $response = $bdd->prepare("INSERT INTO Etudiant (Nom,Prenom,Email,MotDePasse,Ecole,Groupe,Promo) VALUES (?,?,?,?,?,?,?)");
+                        $response->execute([$_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"], $_POST["ecole"], $_POST["groupe"], $_POST["promo"]]);
                         echo 'successed 3 <br>';
-                        break;
-                    } else {
-                        echo 'failed 3 <br>';
-                    }
+                        break;                    
+                } else {
+                    echo 'failed 3 <br>';
                 }
             }
             break;
