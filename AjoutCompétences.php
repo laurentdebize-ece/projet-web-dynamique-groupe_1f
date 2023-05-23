@@ -2,7 +2,7 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=omnesmyskills;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=bdmyskills;charset=utf8', 'root', 'root');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['supp_competence'])) {
         $idCompetence = $_POST['id_competence'];
 
-        $sql = "DELETE FROM competencesmatieres WHERE Competence = ?";
+        $sql = "DELETE FROM competence WHERE NomCompetence = ?";
         $stmt = $bdd->prepare($sql);
 
         if ($stmt->execute([$idCompetence])) {
@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo()[2];
         }
     } elseif (isset($_POST['ajout_competence'])) {
-        $matiere = $_POST['matieres'];
-        $competence = htmlspecialchars($_POST['competence']);
+        $matiere = $_POST['Matiere'];
+        $competence = htmlspecialchars($_POST['NomCompetence']);
 
         // Vérification si la compétence existe déjà
-        $sql = "SELECT COUNT(*) FROM competencesmatieres WHERE Matiere = ? AND Competence = ?";
+        $sql = "SELECT COUNT(*) FROM competence WHERE Matiere = ? AND NomCompetence = ?";
         $stmt = $bdd->prepare($sql);
         $stmt->execute([$matiere, $competence]);
         $count = $stmt->fetchColumn();
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($count > 0) {
             echo "Cette compétence existe déjà.";
         } else {
-            $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 1)";
+            $sql = "INSERT INTO competence (Matiere, NomCompetence, Acquisition) VALUES (?, ?, '3')";
             $stmt = $bdd->prepare($sql);
 
             if ($stmt->execute([$matiere, $competence])) {
@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <form id="cAdd" class="tabcontent" style="display:none" action="" method="post">
             <div class="form-control">
-              <input type="text" id="matieres" name="matieres" required>
-              <label for="matieres">
+              <input type="text" id="Matiere" name="Matiere" required>
+              <label for="Matiere">
                     <span style="transition-delay:50ms">M</span>
                     <span style="transition-delay:100ms">a</span>
                     <span style="transition-delay:150ms">t</span>
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div>
               <label for="description">Description de la compétence :</label>
-              <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
+              <textarea id="NomCompetence" name="NomCompetence" rows="5" cols="70" required></textarea>
             </div>
             <br></br>
 
