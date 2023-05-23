@@ -10,12 +10,14 @@ try {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['supp_competence'])) {
-        $idCompetence = $_POST['id_competence'];
+        $matiere = $_POST['Matiere'];
+        $nomCompetence = $_POST['NomCompetence'];
 
-        $sql = "DELETE FROM competence WHERE NomCompetence = ?";
+
+        $sql = "DELETE FROM competence WHERE Matiere = ? AND NomCompetence = ?";
         $stmt = $bdd->prepare($sql);
 
-        if ($stmt->execute([$idCompetence])) {
+        if ($stmt->execute([$matiere, $nomCompetence])) {
             echo "Compétence supprimée avec succès !";
         } else {
             echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo()[2];
@@ -100,11 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <br></br>
 
-            <button type="submit" name="ajout_competence" class="button">Ajouter une compétence</button>
+            <input type="submit" name="ajout_competence" value="Ajouter une compétence">
 
-            
-            <br></br>
-            <input type="hidden" name="id_competence" value="">
+
             <input type="submit" value="Supprimer cette compétence" name="supp_competence">
         </form>
     </div>
