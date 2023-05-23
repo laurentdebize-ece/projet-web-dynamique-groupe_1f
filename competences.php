@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idEtudiant = $_SESSION['idEtudiant'];
 
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=BDMYSKILLS;charset=utf8', 'root', 'root');
@@ -28,7 +29,7 @@ try {
 try {
     // Récupération de l'ID de l'étudiant connecté
     if (isset($_SESSION['ID_Etudiant'])) {
-        $idEtudiant = $_SESSION['ID_Etudiant'];
+        $idEtudiant = $_SESSION['idEtudiant'];
     } else {
         echo "Vous n'etes pas connecté";
     }
@@ -76,11 +77,11 @@ try {
     </button>
     <nav class="sidebar">
         <a href="accueilAdmin.html"><i class="fa fa-home"></i> Accueil</a>
-        <a href="competences.html">Compétences</a>
+        <a href="competences.php">Compétences</a>
         <a href="matieres.html">Matières</a>
         <a href="competences_transverses.html">Compétences transverses</a>
         <a href="toutes_compétences.html">Toutes les compétences</a>
-        <a href="profil.html">Profil</a>
+        <a href="profil.php">Profil</a>
     </nav>
 
     <div class="main">

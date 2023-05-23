@@ -3,7 +3,7 @@ session_start();
 
 // Assurez-vous que l'utilisateur est connecté
 if (!isset($_SESSION['userId']) || !isset($_SESSION['accountType'])) {
-    header('Location: profil.php');
+    
     exit();
 }
 
