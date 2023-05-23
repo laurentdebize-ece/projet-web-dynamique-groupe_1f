@@ -2,41 +2,53 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=omnesmyskills;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=bdmyskills;charset=utf8', 'root', 'root');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
- 
-    $matiere = $_POST['matieres'];
-    $competence = htmlspecialchars($_POST['competence']);
-
-
-    $sql = "SELECT COUNT(*) FROM competencesmatieres WHERE Matiere = ? AND Competence = ?";
-    $stmt = $bdd->prepare($sql);
-    $stmt->execute([$matiere, $competence]);
-    $count = $stmt->fetchColumn();
-
-    if ($count > 0) {
-        echo "Cette compétence existe déjà.";
-    } else {
-        $sql = "INSERT INTO competencesmatieres (Matiere, Competence, Acquis, EnCours, NonAcquis) VALUES (?, ?, 0, 0, 1)";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['supp_competence'])) {
+        $matiere = $_POST['Matiere'];
+        $nomCompetence = $_POST['NomCompetence'];
 
 
+        $sql = "DELETE FROM competence WHERE Matiere = ? AND NomCompetence = ?";
         $stmt = $bdd->prepare($sql);
 
- 
-        if ($stmt->execute([$matiere, $competence])) {
-            echo "Compétence ajoutée avec succès !";
+        if ($stmt->execute([$matiere, $nomCompetence])) {
+            echo "Compétence supprimée avec succès !";
         } else {
-            echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
+            echo "Erreur lors de la suppression de la compétence: " . $stmt->errorInfo()[2];
+        }
+    } elseif (isset($_POST['ajout_competence'])) {
+        $matiere = $_POST['Matiere'];
+        $competence = htmlspecialchars($_POST['NomCompetence']);
+
+        // Vérification si la compétence existe déjà
+        $sql = "SELECT COUNT(*) FROM competence WHERE Matiere = ? AND NomCompetence = ?";
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute([$matiere, $competence]);
+        $count = $stmt->fetchColumn();
+
+        if ($count > 0) {
+            echo "Cette compétence existe déjà.";
+        } else {
+            $sql = "INSERT INTO competence (Matiere, NomCompetence, Acquisition) VALUES (?, ?, '3')";
+            $stmt = $bdd->prepare($sql);
+
+            if ($stmt->execute([$matiere, $competence])) {
+                echo "Compétence ajoutée avec succès !";
+            } else {
+                echo "Erreur lors de l'insertion de la compétence: " . $stmt->errorInfo()[2];
+            }
         }
     }
 }
 ?>
+
+
 
 
 
@@ -72,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
         </div>
         <form id="cAdd" class="tabcontent" style="display:none" action="" method="post">
             <div class="form-control">
-              <input type="text" id="matieres" name="matieres" required>
-              <label for="matieres">
+              <input type="text" id="Matiere" name="Matiere" required>
+              <label for="Matiere">
                     <span style="transition-delay:50ms">M</span>
                     <span style="transition-delay:100ms">a</span>
                     <span style="transition-delay:150ms">t</span>
@@ -86,11 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['competence'])) {
             </div>
             <div>
               <label for="description">Description de la compétence :</label>
-              <textarea id="competence" name="competence" rows="5" cols="70" required></textarea>
+              <textarea id="NomCompetence" name="NomCompetence" rows="5" cols="70" required></textarea>
             </div>
-            
             <br></br>
-            <input type="submit" value="Ajouter cette compétence">
+
+            <input type="submit" name="ajout_competence" value="Ajouter une compétence">
+
+
+            <input type="submit" value="Supprimer cette compétence" name="supp_competence">
         </form>
     </div>
     <button onclick="topFunction()" id="scrollTop" class="scrollTop" title="Haut de page">Haut de page</button>
