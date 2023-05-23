@@ -22,7 +22,13 @@ switch ($_POST["class"]) {
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
-                    header('Location: accueilAdmin.html');
+                    if($row["FirstCo"] == 1) {
+                        $bdd->query("UPDATE Administrateur SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
+                        header('Location: 1erConnexionChangePwd.html');
+                    } else {
+                        header('Location: accueilAdmin.html');
+                    }
+                    break;
                 }
             }
         } else {
@@ -37,7 +43,12 @@ switch ($_POST["class"]) {
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
-                    header('Location: accueilProf.html');
+                    if($row["FirstCo"] == 1) {
+                        $bdd->query("UPDATE Professeur SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
+                        header('Location: 1erConnexionChangePwd.html');
+                    } else {
+                        header('Location: accueilProf.html');
+                    }
                     break;
                 }
             }
@@ -53,7 +64,12 @@ switch ($_POST["class"]) {
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
-                    header('Location: accueilEtudiant.html');
+                    if($row["FisrtCo"] == 1) {
+                        $bdd->query("UPDATE Etudiant SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
+                        header('Location: 1erConnexionChangePwd.html');
+                    } else {
+                        header('Location: accueilEtudiant.html');
+                    }                    
                     break;
                 }
             }

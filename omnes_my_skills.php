@@ -26,7 +26,6 @@
                 <div>
                     <input type="radio" id="3" name="class" value="3">
                     <label for="etudiant">Etudiant</label>
-
                 </div>
                 <div>
                     <input type="radio" id="2" name="class" value="2">

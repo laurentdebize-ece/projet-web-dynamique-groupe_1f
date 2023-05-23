@@ -12,7 +12,23 @@
 <body>
     <h1>Changer son mot de passe</h1>
     <div class="form-container">
-        <form id="changePasswordForm" action="accueilEtudiant.html" method="post">
+        <form id="changePasswordForm" action="changement_mdp.php" method="post">
+            <label>Satut :</label>
+            <div style="display: flex; justify-content: space-between; width: 90%;">
+                <div>
+                    <input type="radio" id="3" name="class" value="3">
+                    <label for="etudiant">Etudiant</label>
+
+                </div>
+                <div>
+                    <input type="radio" id="2" name="class" value="2">
+                    <label for="scolarite">Professeur</label>
+                </div>
+                <div>
+                    <input type="radio" id="1" name="class" value="1">
+                    <label for="administrateur">Administrateur</label>
+                </div>
+            </div>
             <div class="form-control">
                 <input type="text" id="email" name="email" required>
                 <label for="email">
@@ -23,6 +39,26 @@
                     <span style="transition-delay:300ms">l</span>
                     <span style="transition-delay:300ms">:</span>
                 </label>
+            </div>
+
+            <div class="form-control">
+                <div class="password-container">
+                    <input type="password" id="oldPassword" name="oldPassword" required>
+                    <label for="oldPassword">
+                        <span style="transition-delay:0ms">O</span>
+                        <span style="transition-delay:0ms">l</span>
+                        <span style="transition-delay:0ms">d</span>
+                        <span style="transition-delay:0ms">p</span>
+                        <span style="transition-delay:50ms">a</span>
+                        <span style="transition-delay:100ms">s</span>
+                        <span style="transition-delay:150ms">s</span>
+                        <span style="transition-delay:200ms">w</span>
+                        <span style="transition-delay:250ms">o</span>
+                        <span style="transition-delay:300ms">r</span>
+                        <span style="transition-delay:350ms">d :</span>
+                    </label>
+                    <span toggle="#oldPassword" class="toggle-password-change">👁️</span>
+                </div>
             </div>
 
             <div class="form-control">
@@ -42,24 +78,6 @@
                         <span style="transition-delay:350ms">d :</span>
                     </label>
                     <span toggle="#newPassword" class="toggle-password-change">👁️</span>
-                </div>
-            </div>
-
-            <div class="form-control">
-                <div class="password-container">
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    <label for="confirmPassword">
-                        <span style="transition-delay:0ms">C</span>
-                        <span style="transition-delay:50ms">o</span>
-                        <span style="transition-delay:100ms">n</span>
-                        <span style="transition-delay:150ms">f</span>
-                        <span style="transition-delay:200ms">i</span>
-                        <span style="transition-delay:250ms">r</span>
-                        <span style="transition-delay:300ms">m</span>
-                        <span style="transition-delay:350ms">e r</span>
-                        <span style="transition-delay:400ms">pwd:</span>
-                    </label>
-                    <span toggle="#confirmPassword" class="toggle-password-con">👁️</span>
                 </div>
             </div>
             <input type="submit" value="Réinitialiser le mot de passe">
