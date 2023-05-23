@@ -40,7 +40,5 @@ CREATE TABLE Competence(
     ID INT(255) NOT NULL UNIQUE PRIMARY KEY,
     Matiere VARCHAR(100) NOT NULL,
     NomCompetence VARCHAR(100) NOT NULL,
-    NonAcquis BOOL DEFAULT '1',
-    EnCours BOOL DEFAULT '0',
-    Acquis BOOL DEFAULT '0'
+    Acquisition INT(3) NOT NULL
 );
