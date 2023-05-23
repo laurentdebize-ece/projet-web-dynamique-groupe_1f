@@ -1,4 +1,5 @@
 <?php
+session_start();
 header("no-cache, no-store, must-revalidate");
 try
 {
@@ -16,17 +17,19 @@ echo '<br>';
 switch ($_POST["class"]) {
     case 1:
         $reqtot = $bdd->query("SELECT * FROM Administrateur");
-        $reqemail = $bdd->query("SELECT Email FROM Administrateur");
-        $reqpass = $bdd->query("SELECT MotDePasse FROM Administrateur");
         if(isset($_POST["login"],$_POST["password"]) && !empty($_POST["login"] && !empty($_POST["password"]))){
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
+                    $_SESSION['userID'] = $row['ID'];
+                    $_SESSION['accountType'] = 'administrateur';
                     if($row["FirstCo"] == 1) {
                         $bdd->query("UPDATE Administrateur SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
-                        header('Location: 1erConnexionChangePwd.html');
+                        
+                        header('Location: 1erConnexionChangePwd.html');                        
                     } else {
-                        header('Location: accueilAdmin.html');
+                        echo 'ok <br>';
+                        header('Location: accueilAdmin.html');                        
                     }
                     break;
                 }
@@ -37,12 +40,12 @@ switch ($_POST["class"]) {
         break;
     case 2:
         $reqtot = $bdd->query("SELECT * FROM Professeur");
-        $reqemail = $bdd->query("SELECT Email FROM Professeur");
-        $reqpass = $bdd->query("SELECT MotDePasse FROM Professeur");
         if(isset($_POST["login"],$_POST["password"]) && !empty($_POST["login"] && !empty($_POST["password"]))){
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
+                    $_SESSION['userID'] = $row['ID'];
+                    $_SESSION['accountType'] = 'professeur';
                     if($row["FirstCo"] == 1) {
                         $bdd->query("UPDATE Professeur SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
                         header('Location: 1erConnexionChangePwd.html');
@@ -58,17 +61,17 @@ switch ($_POST["class"]) {
         break;
     case 3:
         $reqtot = $bdd->query("SELECT * FROM Etudiant");
-        $reqemail = $bdd->query("SELECT Email FROM Etudiant");
-        $reqpass = $bdd->query("SELECT MotDePasse FROM Etudiant");
         if(isset($_POST["login"],$_POST["password"]) && !empty($_POST["login"] && !empty($_POST["password"]))){
             while ($row = $reqtot->fetch()) {
                 if(htmlspecialchars($_POST["login"]) == $row['Email'] 
                 && htmlspecialchars($_POST["password"]) == $row['MotDePasse']){
+                    $_SESSION['userID'] = $row['ID'];
+                    $_SESSION['accountType'] = 'etudiant';
                     if($row["FisrtCo"] == 1) {
                         $bdd->query("UPDATE Etudiant SET FirstCo = '0' WHERE ID = '{$row['ID']}'");
-                        header('Location: 1erConnexionChangePwd.html');
+                        header('Location: 1erConnexionChangePwd.html');                        
                     } else {
-                        header('Location: accueilEtudiant.html');
+                        header('Location: accueilEtudiant.html');                        
                     }                    
                     break;
                 }
