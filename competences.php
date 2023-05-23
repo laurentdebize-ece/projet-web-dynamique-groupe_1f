@@ -8,16 +8,16 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-// Récupération de la matière sélectionnée
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subject'])) {
     $selectedSubject = $_POST['subject'];
 } else {
-    // Valeur par défaut si aucune matière sélectionnée
+
     $selectedSubject = "competence";
 }
 
 try {
-    // Récupération des compétences de la matière sélectionnée
+
     $sql = "SELECT * FROM " . $selectedSubject;
     $stmt = $bdd->query($sql);
     $subjectSkills = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ try {
 }
 
 try {
-    // Récupération de l'ID de l'étudiant connecté
+
     if (isset($_SESSION['userID'])) {
         $idEtudiant = $_SESSION['userID'];
     } else {
@@ -34,7 +34,7 @@ try {
         exit();
     }
 
-    // Mettre à jour l'état de la compétence dans la base de données
+
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'avancement') === 0) {
             $skillId = substr($key, 11);
